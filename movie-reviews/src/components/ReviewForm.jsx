@@ -7,7 +7,9 @@ import React from 'react'
 const ReviewForm = () => {
 
     return (
-        <>
-        </>
+        <form>
+            <input type='text' className='form form-control'></input>
+            <button className='btn btn-primary'></button>
+        </form>
     );
 };
