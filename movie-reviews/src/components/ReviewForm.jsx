@@ -4,12 +4,16 @@ import React from 'react'
 // When submitted, the review should be added to the movie. 
 //All this data can be stored in an array, 
 //no networking or database needed for this assignment.
-export default function ReviewForm() {
+export default function ReviewForm(movieKey) {
 
+    let movieID=`reviewFor`+{movieKey};
     return (
+       
         <form>
-            <input type='text' className='form form-control'></input>
-            <button className='btn btn-primary'></button>
+            <label htmlFor=''>Leave a Review:</label>
+            <textarea type='text' className='form-control' rows="3"></textarea><br></br>
+            <button className='btn btn-primary' id={movieID} >Submit</button>
         </form>
+        
     );
 };

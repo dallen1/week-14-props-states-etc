@@ -6,7 +6,7 @@ import React from 'react'
 export default function Stars(){
 
     return (
-        <>
+        <><p>★★★★★</p>
         </>
     );
 };
