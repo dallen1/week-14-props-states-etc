@@ -3,7 +3,7 @@ import Movie from './Movie'
 
 
 //a container for all the Movie components and their data.
-const MovieList = (movies) => {
+export default function MovieList(movies) {
 
     return (
         <div>

@@ -5,7 +5,7 @@ import ReviewForm from './ReviewForm'
 
 
 //a component that represents movie data (i.e. image, synopsis, rating, etc…)
-const Movie = (title, image, synopsis, rating, review) => {
+export default function Movie({title, image, synopsis, rating, review}) {
 
     return (
         <div>

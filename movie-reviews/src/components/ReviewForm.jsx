@@ -4,7 +4,7 @@ import React from 'react'
 // When submitted, the review should be added to the movie. 
 //All this data can be stored in an array, 
 //no networking or database needed for this assignment.
-const ReviewForm = () => {
+export default function ReviewForm() {
 
     return (
         <form>
