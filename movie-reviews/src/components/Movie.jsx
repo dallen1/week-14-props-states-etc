@@ -5,19 +5,24 @@ import ReviewForm from './ReviewForm'
 
 
 //a component that represents movie data (i.e. image, synopsis, rating, etc…)
-export default function Movie({title, image, synopsis, rating, review}) {
-
+export default function Movie({movies}, {reviews}) {
     
+    const movie = movies.map(movie =>
+        <div key={movie.title}>
+            <h3>{movie.title}</h3>
+            <img src={movie.image}></img>
+            <p>{movie.rating}</p>
+            <p>{movie.synopsis}</p>
+            <Stars movieKey={movie.title} />
+            <ReviewList movieKey= {movie.title} />
+            <ReviewForm movieKey={movie.title} />
+        </div>
+      );
 
     return (
         <div>
-            <h3>{this.title}</h3>
-            <img src={image}></img>
-            <p>{rating}</p>
-            <p>{synopsis}</p>
-            <Stars />
-            <ReviewList {...review}/>
-            <ReviewForm movieKey="1" />
+            {movie}
+
         </div>
     );
 };
