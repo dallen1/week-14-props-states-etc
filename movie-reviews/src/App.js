@@ -1,8 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.css"
+import MovieList from './components/MovieList';
+
+
+
 
 function App() {
-  return (
+  return <MovieList movies={MOVIES}/>
+
+
+ /*  return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,7 +27,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  ); */
 }
 
 export default App;
