@@ -1,27 +1,15 @@
 import React from 'react'
-
+import Stars from './Stars';
 
 //A text review a user can leave on a movie.
-export default function Review(movieKey) {
-
-    const disp = [];
-
-    movieKey.reviews.forEach((review) => {
-        if (review.title == movieKey.movieKey) {
-            disp.push(review)          
-        }
-    });
-
-    const listItems = disp.map(review =>
-        <li key={review.id}>
-            {review.content}
-        </li>
-        );
-
+export default function Review({review}) {
     return (
-        <ul>
-            {listItems}
-        </ul>
+        <div>
+            <span className='reviewUser'>{review.user}</span>:&nbsp;
+            <span className='reviewContent'>{review.content}</span>
+            <Stars stars={review.rating} disabled={true} />
+        </div>
+
     );
 };
 

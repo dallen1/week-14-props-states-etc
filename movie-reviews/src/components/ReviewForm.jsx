@@ -1,28 +1,41 @@
 import React, {useState} from 'react'
-import {REVIEWS} from './ReviewList'
-import Review from './Review';
+import Stars from './Stars';
 
 //a form at the bottom of a Movie component that allows users to leave reviews.
 // When submitted, the review should be added to the movie. 
 //All this data can be stored in an array, 
 //no networking or database needed for this assignment.
-export default function ReviewForm({movieKey}) {
-    const [comment, setComment] = useState('');
-    let id=9;
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        id=REVIEWS.length+1;
-        const fullcomment = {
-            title: movieKey, 
-            id: id,
-            content: comment
-        }; 
-        REVIEWS.push(fullcomment)
-        console.log(setComment)
-        //setComment={comment};
-        
-      }    
+export default function ReviewForm({movieID, pushReview}) {
+ 
+    const [user, setUser] = useState("");
+    const [review, setReview] = useState("");
+  
+    const userHandler = (e) => {
+      setUser(e.target.value);
+    }
+  
+    const reviewHandler = (e) => {
+      setReview(e.target.value);
+    }
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const stars = e.target.rating.value;
+  
+      pushReview(movieID, {
+            user,
+            review,
+            rating: stars
+          }
+      );
+  
+      resetForm();
+    }
+  
+    const resetForm = () => {
+      setUser("");
+      setReview("");
+    }
 
     return (
 
@@ -33,11 +46,14 @@ export default function ReviewForm({movieKey}) {
                 className='form-control' 
                 rows="3"
                 placeholder='Comment'
-                value={comment}
-                onChange={e => setComment(e.target.value)}
+                value={review}
+                onChange={reviewHandler}
             />
             <br/>
+            <Stars disabled = {false} stars={0} />
+            <br/>
             <button className='btn btn-primary'>Submit</button>
+
         </form>
         
     );

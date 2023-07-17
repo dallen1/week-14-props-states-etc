@@ -1,12 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react';
+import {FaStar} from 'react-icons/fa'
 
-//a one to five-star rating component that allows users to rate something 
-//(movies in this case, but remember that components are reusable,
-// so you could use it elsewhere!)
-export default function Stars(){
+export default function Stars({stars, disabled}) {
 
-    return (
-        <><p>★★★★★</p>
-        </>
-    );
+  const [rating, setRating] = useState(stars);
+
+  return (
+    <div className="starRating">
+      {[...Array(5)].map((star, i) => {
+        const ratingValue = i + 1;
+        return (
+          <label key={i} >
+          <input 
+             type="radio" 
+             name="rating" 
+             value={ratingValue} 
+             disabled = {disabled}
+             onClick={() => setRating(ratingValue)}
+          />
+           <FaStar 
+             size = {15} 
+             color={ratingValue <= (rating) ? 'FFA500' : '#e4e5e9'} 
+             className="star-icon" 
+           />
+         </label>
+        );
+      })}
+    </div>
+  );
 };
+

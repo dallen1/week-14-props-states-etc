@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Movie from './Movie'
 
 
@@ -7,12 +7,20 @@ import Movie from './Movie'
 //a container for all the Movie components and their data.
 
 
-export default function MovieList({movies}) {
+export default function MovieList({movies, pushReview}) {
     
 
     return (
-        <div>
-            <Movie movies={movies} />
+        <div className='movieContainer'>
+            {
+                movies.map (movie => {
+                    return (
+                        <div className='movie' key={movie.id}>    
+                            <Movie movie = {movie} pushReview = {pushReview}/>
+                        </div>
+                    );
+                })
+            }
         </div>
     );
 };

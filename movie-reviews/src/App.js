@@ -2,32 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.css"
 import MovieList from './components/MovieList';
+import { useState } from 'react';
+import {MOVIES} from './assets/data/MOVIES.js'
 
 
 
 
-function App() {
-  return <MovieList movies={MOVIES}/>
+export default function App() {
+  const [movies, setMovies] = useState(MOVIES);
+
+  const pushReview = (MovieID, content) => {
+
+    const updatedMovies = [...movies];
+    const i = updatedMovies.findIndex(movie => movie.id === MovieID);
+    updatedMovies[i].content.push(content);
+    setMovies(updatedMovies);
+
+  };
 
 
- /*  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  ); */
+  return <MovieList movies={movies} pushReview = {pushReview}/>
+
 }
 
-export default App;
