@@ -67,7 +67,7 @@ export const MOVIES = [
             {
                 user: "Diana",
                 rating: 5,
-                content: "never getsold"
+                content: "never gets old"
             }
         ]
     }  
