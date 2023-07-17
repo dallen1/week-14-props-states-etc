@@ -1,0 +1,18 @@
+.starRating {
+    margin: 3px 0 3px 0;
+  }
+  
+
+  
+     .starRating {
+        display: flex;
+     }
+  
+    .starRating input[type="radio"] {
+       display: none;
+    }
+  
+    .star-icon {
+      cursor: pointer;
+      transition: color 500ms; 
+    }

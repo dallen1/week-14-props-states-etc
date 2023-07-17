@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {FaStar} from 'react-icons/fa'
 
+//borrowed from instructor example
 export default function Stars({stars, disabled}) {
 
   const [rating, setRating] = useState(stars);

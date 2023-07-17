@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import Stars from './Stars';
+import { v4 as uuidv4 } from 'uuid';
+
 
 //a form at the bottom of a Movie component that allows users to leave reviews.
 // When submitted, the review should be added to the movie. 
@@ -8,7 +10,7 @@ import Stars from './Stars';
 export default function ReviewForm({movieID, pushReview}) {
  
     const [user, setUser] = useState("");
-    const [review, setReview] = useState("");
+    const [content, setReview] = useState("");
   
     const userHandler = (e) => {
       setUser(e.target.value);
@@ -23,9 +25,10 @@ export default function ReviewForm({movieID, pushReview}) {
       const stars = e.target.rating.value;
   
       pushReview(movieID, {
+            id: uuidv4(),    
             user,
-            review,
-            rating: stars
+            rating: stars,
+            content
           }
       );
   
@@ -40,13 +43,15 @@ export default function ReviewForm({movieID, pushReview}) {
     return (
 
         <form onSubmit={handleSubmit}>
+            <label> Your name:</label>
+            <input type='text' value={user} onChange={userHandler} required/><br/>
             <label>Leave a Review:</label>
             <textarea 
                 type='text' 
                 className='form-control' 
                 rows="3"
                 placeholder='Comment'
-                value={review}
+                value={content}
                 onChange={reviewHandler}
             />
             <br/>
