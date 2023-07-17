@@ -5,9 +5,16 @@ import Stars from './Stars';
 export default function Review({review}) {
     return (
         <div>
-            <span className='reviewUser'>{review.user}</span>:&nbsp;
-            <span className='reviewContent'>{review.content}</span>
-            <Stars stars={review.rating} disabled={true} />
+            <div className=''>
+                <span className='reviewUser'>{review.user}:&nbsp;</span>
+                <Stars stars={review.rating} disabled={true} />
+            </div>
+            <div className='border-bottom'>
+                <span>Review:&nbsp;</span>
+                <span className='reviewContent '>{review.content}</span>
+               
+            </div> <br/>
+            
         </div>
 
     );

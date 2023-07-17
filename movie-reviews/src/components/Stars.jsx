@@ -7,7 +7,7 @@ export default function Stars({stars, disabled}) {
   const [rating, setRating] = useState(stars);
 
   return (
-    <div className="starRating">
+    <span className="starRating">
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
         return (
@@ -27,7 +27,7 @@ export default function Stars({stars, disabled}) {
          </label>
         );
       })}
-    </div>
+    </span>
   );
 };
 

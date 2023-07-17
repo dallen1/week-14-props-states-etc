@@ -10,13 +10,18 @@ export default function Movie({movie, pushReview}) {
     const rating = calcMovieRating(movie.reviews);
 
         return (
-        <div key={movie.id}>
+        <div className='col-sm' key={movie.id}>
             <h3>{movie.title}</h3>
-            <img src={movie.image}></img>
+            <img src={movie.image} alt={movie.title} height='400px' width='auto'></img>
             <p>{movie.synopsis}</p>
-            <ReviewList reviews = {movie.reviews} />
-            <ReviewForm movieID={movie.id} pushReview = {pushReview} />
-
+            <div>Avg User Rating: {rating}
+                <h5>Leave a Review:</h5>
+                <ReviewForm movieID={movie.id} pushReview = {pushReview} />
+            </div>
+            <div>
+                <h5>User Reviews:</h5>
+                <ReviewList reviews = {movie.reviews} />
+            </div>
         </div>
     );
 };

@@ -11,11 +11,11 @@ export default function MovieList({movies, pushReview}) {
     
 
     return (
-        <div className='movieContainer'>
+        <div className='movieContainer row'>
             {
                 movies.map (movie => {
                     return (
-                        <div className='movie' key={movie.id}>    
+                        <div className='movie col-lg' key={movie.id}>    
                             <Movie movie = {movie} pushReview = {pushReview}/>
                         </div>
                     );

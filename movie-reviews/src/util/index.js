@@ -1,7 +1,6 @@
 
 
 const calcMovieRating = (reviews) => {
-
     let ratings = 0;
   
     reviews.forEach(review => {

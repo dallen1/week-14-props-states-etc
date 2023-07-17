@@ -22,7 +22,7 @@ export default function ReviewForm({movieID, pushReview}) {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      const stars = e.target.rating.value;
+      const stars = parseInt(e.target.rating.value);
   
       pushReview(movieID, {
             id: uuidv4(),    
@@ -43,9 +43,10 @@ export default function ReviewForm({movieID, pushReview}) {
     return (
 
         <form onSubmit={handleSubmit}>
-            <label> Your name:</label>
-            <input type='text' value={user} onChange={userHandler} required/><br/>
-            <label>Leave a Review:</label>
+            <input type='text' value={user} onChange={userHandler} placeholder='  Name'required/>
+            <span>&nbsp;Your rating:&nbsp;</span>
+            <Stars disabled = {false} stars={0} />
+            <br/>
             <textarea 
                 type='text' 
                 className='form-control' 
@@ -55,10 +56,7 @@ export default function ReviewForm({movieID, pushReview}) {
                 onChange={reviewHandler}
             />
             <br/>
-            <Stars disabled = {false} stars={0} />
-            <br/>
             <button className='btn btn-primary'>Submit</button>
-
         </form>
         
     );

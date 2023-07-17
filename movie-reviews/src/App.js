@@ -23,7 +23,11 @@ export default function App() {
   };
 
 
-  return <MovieList movies={movies} pushReview = {pushReview}/>
+  return (
+    <div className='container-fluid'>
+    <MovieList movies={movies} pushReview = {pushReview}/>
+    </div>
+  );
 
 }
 
